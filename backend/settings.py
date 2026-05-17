@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-y+&^(^6(f4!v@0bfqz!fn))sc0m(4ri4bu^vhf1mo8h8cb!hy2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.131']
 AUTH_USER_MODEL = 'users.User'
 
 # Application definition
@@ -131,9 +131,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:19006",  # порт Expo
+    "http://localhost:19006",
     "http://127.0.0.1:8000",
+    "http://192.168.1.131:8000",  # IP вашего компьютера (замените на свой)
+    "http://192.168.1.131:19006", # Порт Expo
 ]
+CORS_ALLOW_ALL_ORIGINS = True  # временно для теста (потом уберите)
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
