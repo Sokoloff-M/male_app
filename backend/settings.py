@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'users',
     'workouts',
-    'nutrition',   
+    'nutrition',
+    'hobbies',   
 ]
 
 MIDDLEWARE = [
