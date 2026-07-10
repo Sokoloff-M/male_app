@@ -35,3 +35,21 @@ class Hobby(models.Model):
     
     def __str__(self):
         return f"{self.user.username} - {self.name}"
+
+
+class HobbyLog(models.Model):
+    hobby = models.ForeignKey(Hobby, on_delete=models.CASCADE, related_name='logs')
+    date = models.DateField(auto_now_add=True, verbose_name='Дата')
+    duration_minutes = models.PositiveIntegerField(
+        default=0, verbose_name='Длительность (мин)'
+    )
+    notes = models.TextField(blank=True, verbose_name='Заметки')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date', '-created_at']
+        verbose_name = 'Лог хобби'
+        verbose_name_plural = 'Логи хобби'
+
+    def __str__(self):
+        return f"{self.hobby.name} - {self.date}"
